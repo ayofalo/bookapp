@@ -1,0 +1,20 @@
+{
+  "name": "mycliapp",
+  "version": "1.0.0",
+  "description": "This is my first cli application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo\"Error: no test specified\"&& exit 1"
+  },
+  "author": "Ayo",
+  "license": "MIT",
+  "preferGlobal": true,
+  "bin": {
+    "mycliapp": "./cliapp.js"
+  },
+  "dependencies": {
+    "autocomplete": "0.0.1",
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0"
+  }
+}

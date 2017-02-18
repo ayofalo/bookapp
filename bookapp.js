@@ -100,7 +100,7 @@ rl.on('line', function(line) {
       case 'add_book':
 
         if (args[1] == null || args[2] == null && args[3] == null) {
-          console.log("Kindly follow the input format : <person_identifier> <new_room_name> [wants accomodation[Y or N]]");
+          console.log("Kindly follow the input format : <title>,<author>,<category>,<year>");
         };
 
         if (args[1] != null && args[2] != null && args[3] != null && args[4] != null) {
@@ -226,6 +226,7 @@ rl.on('line', function(line) {
 
       case 'update_book':
 
+        if(args[3].toLowerCase() == "literature"){
         var sqlite3 = require('sqlite3').verbose();
         var file = args[1];
         var db = new sqlite3.Database(file);
@@ -235,10 +236,44 @@ rl.on('line', function(line) {
 
           }
         );
+      };
+      if(args[3].toLowerCase() == "medicine"){
+        var sqlite3 = require('sqlite3').verbose();
+        var file = args[1];
+        var db = new sqlite3.Database(file);
+        var inputData = [args[2], args[4]];
+        db.all("UPDATE medicine SET dt = ? WHERE id = ?", inputData,
+          function(err, rows) {
+
+          }
+        );
+      };
+      if(args[3].toLowerCase() == "politics"){
+        var sqlite3 = require('sqlite3').verbose();
+        var file = args[1];
+        var db = new sqlite3.Database(file);
+        var inputData = [args[2], args[4]];
+        db.all("UPDATE politics SET dt = ? WHERE id = ?", inputData,
+          function(err, rows) {
+
+          }
+        );
+      };
+      if(args[3].toLowerCase() == "engineering"){
+        var sqlite3 = require('sqlite3').verbose();
+        var file = args[1];
+        var db = new sqlite3.Database(file);
+        var inputData = [args[2], args[4]];
+        db.all("UPDATE engineering SET dt = ? WHERE id = ?", inputData,
+          function(err, rows) {
+
+          }
+        );
+      }
         break
 
         //load_state
-        
+
       case 'load_state':
         var sqlite3 = require('sqlite3').verbose();
         var file = args[1];

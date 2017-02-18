@@ -1,7 +1,7 @@
 {
-  "name": "mycliapp",
+  "name": "bookapp",
   "version": "1.0.0",
-  "description": "This is my first cli application.",
+  "description": "This is my second cli application.",
   "main": "index.js",
   "scripts": {
     "test": "echo\"Error: no test specified\"&& exit 1"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "mycliapp": "./cliapp.js"
+    "bookapp": "./bookapp.js"
   },
   "dependencies": {
     "autocomplete": "0.0.1",

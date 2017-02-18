@@ -1,10 +1,10 @@
-OLUWAFEMISULE Fellow Y 
-DOMINICWALTERS Staff Y 
-SIMONPATTERSON Fellow Y 
-MARILAWRENCE Fellow Y 
-LEIGHRILEY Staff Y 
-TANALOPEZ Fellow Y 
-KELLYMcGUIRE Staff Y 
-TOLUOREOFE Fellow Y 
-TOMIOLU Staff Y 
-OREOFE Fellow Y 
+In Search of Lost Time, Marcel Proust,literature,1913,
+Ulysses,James Joyce,literature,1904,
+Don Quixote, Miguel de Cervantes,literature,1413,
+Communist Manifesto, Karl Marx,politics,1848,
+Leviathan, Thomas Horbes,politics,2013,
+The prince, Machabelli,politics,1532,
+The Immortal life, Rebecca,medicine,2012,
+The House of God, Samuel Shem,medicine,2012,
+Cutting for stone, Abraham Verchese,medicine,2012,
+Being Mortal, Atul Gawande,medicine,2012,

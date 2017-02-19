@@ -12,13 +12,13 @@ const rl = readline.createInterface({
 
 });
 
-function Book(title, author, category, year) {
-  this.title = title;
-  this.author = author;
-  this.category = category;
-  this.year = year;
+function Book(title, author, category, year) {//Class Book describes the characteristics of a book in a library and the associated methods involved in handling a book.
+  this.title = title; //A book must have a title
+  this.author = author;// A book must have an author
+  this.category = category;// A book must have a category. This application has been constrained to only four categories i.e engineering, medicine,politics and literature.
+  this.year = year;// The year a book was written
 
-  this.allocateShelf = function(name) {
+  this.allocateShelf = function(name) {// This method is used to allocate books to the shelf that stores a certain category.
     if (name == "literature") {
       literature.push(this.title)
       console.log(literature)
@@ -41,25 +41,27 @@ function Book(title, author, category, year) {
 }
 
 
-var literature = [];
-var engineering = [];
-var politics = [];
-var medicine = [];
+var literature = [];// An array that stores the titles of books under the literature category
+var engineering = [];//An array that stores the titles of books under the engineering category
+var politics = [];//An array that stores the titles of books under the politics category
+var medicine = [];//An array that stores the titles of books under the medicine category
 
-var bookList = []; 
-var param = []; 
-var sparam = []; 
+var bookList = []; // An array that stores all the books
+var param = []; //An array that is used to read books from txt file.
+var sparam = []; // An array that is uded to read books from txt file
 
 
 rl.prompt() 
 
-rl.on('line', function(line) { 
-    var args = line.split(',')
+rl.on('line', function(line) { //The readline "on" eventhandler is used to manipulate line inputs
+    var args = line.split(',')//Each arguement is differentiated by th ","
     switch (args[0]) {
 
 
       // list_books
-      case 'list_books':
+      case 'list_books'://List_books,<name of category> - used to list the books stored in a particular category/shelf
+   //example
+   //list_books,literature
         if (args[1].toLowerCase() == "literature") { 
           console.log('\n');
           console.log(color.purple('List of literature books'));
@@ -85,7 +87,7 @@ rl.on('line', function(line) {
             console.log(politics[i]);
           }
         }
-        if (args[1].toLowerCase() == "medicine") {
+        if (args[1].toLowerCase()=="medicine") {
           console.log('\n');
           console.log(color.blue('List of medicine'));
           console.log('------------------');
@@ -97,7 +99,7 @@ rl.on('line', function(line) {
         break
 
         //add_book
-      case 'add_book':
+      case 'add_book'://used to add books to the library and respective shelf.
 
         if (args[1] == null || args[2] == null && args[3] == null) {
           console.log("Kindly follow the input format : <title>,<author>,<category>,<year>");
@@ -114,7 +116,7 @@ rl.on('line', function(line) {
         break
 
         //load_books from sample.txt
-      case 'load_books':
+      case 'load_books':// used to load books from a text file into the application
         var content = fs.readFileSync('sample.txt', 'utf8');
         var contentlines = content.split("\n");
 
@@ -162,7 +164,7 @@ rl.on('line', function(line) {
 
         //save_state into database
 
-      case 'save_state':
+      case 'save_state'://used to save the title of each book and its respective shelf to the sqlite database
         var sqlite3 = require('sqlite3').verbose();
         var db = new sqlite3.Database(args[1]);
 
@@ -224,7 +226,7 @@ rl.on('line', function(line) {
 
         //update_book
 
-      case 'update_book':
+      case 'update_book'://used to update books in the sqlite database.
 
         if(args[3].toLowerCase() == "literature"){
         var sqlite3 = require('sqlite3').verbose();
@@ -274,7 +276,7 @@ rl.on('line', function(line) {
 
         //load_state
 
-      case 'load_state':
+      case 'load_state'://used to load the contents of a database into the application.
         var sqlite3 = require('sqlite3').verbose();
         var file = args[1];
         var db = new sqlite3.Database(file);
@@ -290,21 +292,21 @@ rl.on('line', function(line) {
         db.all("SELECT id,dt FROM engineering", function(err, rows) {
           rows.forEach(function(row) {
             console.log("engineering tray id : " + row.id, row.dt);
-            engineering.push(row.id);
+            engineering.push(row.dt);
           })
         });
 
         db.all("SELECT id,dt FROM politics", function(err, rows) {
           rows.forEach(function(row) {
             console.log("politics tray id : " + row.id, row.dt);
-            politics.push(row.id);
+            politics.push(row.dt);
           })
         });
 
         db.all("SELECT id,dt FROM medicine", function(err, rows) {
           rows.forEach(function(row) {
             console.log("medicine tray id : " + row.id, row.dt);
-            medicine.push(row.id);
+            medicine.push(row.dt);
           });
 
 
